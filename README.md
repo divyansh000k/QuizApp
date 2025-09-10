@@ -1,21 +1,21 @@
 📘 Quiz App (Hibernate + MySQL)
 
 A Java-based Quiz Application built using Hibernate ORM and MySQL.
-The app allows users to take quizzes with a custom number of questions, records their scores, and maintains a leaderboard 🏆.
+This app allows users to take quizzes with a chosen number of questions, stores their scores, and displays a leaderboard 🏆.
 
 🚀 Features
 
-🎯 Attempt quizzes with a chosen number of questions.
+🎯 Attempt quizzes with a custom number of questions.
 
-📝 Multiple-choice questions stored in MySQL database.
+📝 Multiple-choice questions stored in MySQL.
 
 📊 Tracks individual user scores.
 
-🏆 Leaderboard showing top performers.
+🏆 Leaderboard showing all participants’ performance.
 
-⚡ Hibernate ORM for database interaction.
+⚡ Hibernate ORM for seamless DB interaction.
 
-🛠️ Simple logging setup to debug SQL queries.
+🛠️ Simple logging setup for formatted SQL queries.
 
 🛠️ Tech Stack
 
@@ -23,9 +23,9 @@ The app allows users to take quizzes with a custom number of questions, records 
 
 🐬 MySQL
 
-📦 Maven (dependency management)
+📦 Maven
 
-🔗 Hibernate ORM (v7.1)
+🔗 Hibernate ORM (7.1)
 
 📝 SLF4J Simple Logger
 
@@ -53,33 +53,66 @@ simplelogger.properties → Logging setup
 
 README.md → Project documentation
 
-
 ⚙️ Configuration
+🐬 Database Setup
 
-Database Setup (MySQL 🐬)
+Open MySQL and create a schema:
 
-Create a schema named college.
+CREATE DATABASE college;
 
-Update DB credentials in hibernate.cfg.xml.
 
-Dependencies (Maven 📦)
+Inside hibernate.cfg.xml, update:
+
+<property name="hibernate.connection.username">root</property>
+<property name="hibernate.connection.password">YOUR_PASSWORD</property>
+<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/college</property>
+
+
+🔑 Replace root with your MySQL username and YOUR_PASSWORD with your MySQL password.
+📌 Default DB name is college. Change if required.
+
+📦 Dependencies (pom.xml)
+
+The project already includes:
 
 Hibernate Core
 
 MySQL Connector
 
-SLF4J Simple Logger
+SLF4J Logger
 
-Logging (📝)
+👉 Run mvn clean install to download dependencies.
 
-Configured in simplelogger.properties for SQL debugging and formatted output.
+📝 Logging
+
+simplelogger.properties is configured to:
+
+Show executed SQL queries.
+
+Show parameter values bound in queries.
+
+Format SQL output for readability.
 
 📝 Usage Flow
 
-User enters their name.
+Run ExecuteQuiz.java.
 
-Application asks quiz questions (based on number chosen).
+Enter your name when prompted.
 
-Final score is stored in DB.
+Choose number of questions (e.g., 10 for a quick quiz).
 
-Leaderboard 🏆 is displayed with user scores.
+Answer MCQs one by one.
+
+Final score is saved in DB.
+
+Leaderboard 🏆 is displayed with username -> score/total.
+
+👤 Author
+
+Divyansh Kushwaha
+
+🌐 GitHub
+
+💼 LinkedIn
+
+💡 Aspiring Java Backend Developer | Hibernate & Spring Enthusiast
