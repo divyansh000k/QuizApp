@@ -1,118 +1,115 @@
-📘 Quiz App (Hibernate + MySQL)
+# Java Quiz Application with Hibernate
 
-A Java-based Quiz Application built using Hibernate ORM and MySQL.
-This app allows users to take quizzes with a chosen number of questions, stores their scores, and displays a leaderboard 🏆.
+Welcome to the Java Quiz Application! This is a command-line-based interactive quiz system built using Java and the Hibernate ORM framework. The application demonstrates core Hibernate concepts such as session management, transactions, CRUD operations, and performance optimization with second-level caching.
 
-🚀 Features
+---
 
-🎯 Attempt quizzes with a custom number of questions.
+## 🚀 About The Project
 
-📝 Multiple-choice questions stored in MySQL.
+This project is a console application that allows users to take a quiz with a variable number of questions. It fetches questions from a MySQL database, records the user's score, and displays a leaderboard sorted by the highest scores. It's an excellent example of using Hibernate for database persistence in a Java application.
 
-📊 Tracks individual user scores.
+A key feature of this project is the implementation of **Hibernate's Second-Level Cache** using Ehcache, which helps in optimizing performance by reducing database hits for frequently accessed data.
 
-🏆 Leaderboard showing all participants’ performance.
+---
 
-⚡ Hibernate ORM for seamless DB interaction.
+## ✨ Features
 
-🛠️ Simple logging setup for formatted SQL queries.
+* **Interactive CLI**: Simple and easy-to-use command-line interface.
+* **Dynamic Quiz Length**: Users can choose how many questions they want to answer.
+* **Score Persistence**: Usernames and final scores are saved to the database.
+* **Leaderboard**: Displays all user scores in descending order.
+* **Hibernate ORM**: Manages all database interactions, mapping Java objects to database tables.
+* **Second-Level Caching**: Implemented using **Ehcache** and **JCache** to boost query performance.
+* **Detailed Logging**: Configured with **SLF4J Simple Logger** to show formatted SQL queries and parameter binding for easy debugging.
 
-🛠️ Tech Stack
+---
 
-☕ Java 24
+## 🛠️ Technologies Used
 
-🐬 MySQL
+This project is built with the following technologies:
 
-📦 Maven
+* **Core**: Java 24
+* **Build Tool**: Maven
+* **Database**: MySQL
+* **ORM Framework**: Hibernate ORM 7.1.0.Final
+* **Caching**: Ehcache 3 / JCache (for Hibernate 2nd Level Cache)
+* **Logging**: SLF4J - Simple Logger
+* **Dependencies**: JAXB (required for Hibernate 7+)
 
-🔗 Hibernate ORM (7.1)
+---
 
-📝 SLF4J Simple Logger
+## 📋 Prerequisites & Setup
 
-📂 Project Structure
+Follow these steps to get the project up and running on your local machine.
 
-ExecuteQuiz.java → Main runner (entry point of the app)
+### Prerequisites
 
-QuizService.java → Core quiz logic (quiz flow + leaderboard)
+* **Java JDK 24** or later installed.
+* **Apache Maven** installed.
+* **MySQL Server** running.
 
-Question1.java → Entity for quiz questions
+### Installation & Configuration
 
-UserScore.java → Entity for user scores
+1.  **Clone the repository:**
+    ```sh
+    git clone <your-repository-url>
+    ```
 
-Question1Dao.java → DAO for question operations
+2.  **Create the Database:**
+    * Log in to your MySQL server.
+    * Create a database. The project is configured to use a database named `college`.
+    ```sql
+    CREATE DATABASE college;
+    ```
 
-UserScoreDao.java → DAO for score operations
+3.  **Configure Database Connection:**
+    * Open the `src/main/resources/hibernate.cfg.xml` file.
+    * Update the following properties with your MySQL username and password.
+    ```xml
+    <property name="hibernate.connection.username">your_username</property>
+    <property name="hibernate.connection.password">your_password</property>
+    ```
+    **Note**: Hibernate is configured with `hbm2ddl.auto` set to `update`, so it will automatically create the necessary tables (`questions` and `user_score`) when the application first runs.
 
-pom.xml → Maven dependencies and project config
+4.  **Build the Project:**
+    * Navigate to the project's root directory in your terminal.
+    * Run the Maven command to install dependencies and build the project.
+    ```sh
+    mvn clean install
+    ```
 
-hibernate.cfg.xml → Hibernate configuration (DB + ORM setup)
+---
 
-ehcache.xml → Cache configuration
+## ▶️ How to Run
 
-simplelogger.properties → Logging setup
+After a successful build, you can run the application directly from your IDE (like IntelliJ or Eclipse) by running the `main` method in the `ExecuteQuiz.class` file.
 
-README.md → Project documentation
+Upon running, the application will prompt you in the console:
+1.  Enter your name.
+2.  Enter the number of questions you want in the quiz.
+3.  Answer the questions.
+4.  Your final score will be displayed, and the leaderboard will be shown.
 
-⚙️ Configuration
-🐬 Database Setup
+---
 
-Open MySQL and create a schema:
+## 📂 Project Structure
 
-CREATE DATABASE college;
+Here's a brief overview of the key files and their roles:
 
+* **`pom.xml`**: Defines all project dependencies, including Hibernate, MySQL Connector, and Ehcache.
+* **`hibernate.cfg.xml`**: The main Hibernate configuration file for database connection, dialect, and cache settings.
+* **`ehcache.xml`**: Configuration file for the Ehcache second-level cache, defining cache regions and policies.
+* **`simplelogger.properties`**: Configures SLF4J Simple Logger to display formatted SQL queries for debugging.
+* **Entities (`Question1.java`, `UserScore.java`)**: POJO classes mapped to the database tables using JPA annotations (`@Entity`, `@Id`, etc.).
+* **DAOs (`Question1Dao.java`, `UserScoreDao.java`)**: Data Access Object classes that handle all the database CRUD operations for the entities.
+* **`QuizService.java`**: Contains the core business logic for starting the quiz and showing the leaderboard.
+* **`ExecuteQuiz.java`**: The main class and entry point of the application. It initializes Hibernate and starts the quiz service.
 
-Inside hibernate.cfg.xml, update:
+---
 
-<property name="hibernate.connection.username">root</property>
-<property name="hibernate.connection.password">YOUR_PASSWORD</property>
-<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/college</property>
+## 🔗 Connect with Me
 
+Feel free to reach out if you have any questions or want to connect!
 
-🔑 Replace root with your MySQL username and YOUR_PASSWORD with your MySQL password.
-📌 Default DB name is college. Change if required.
-
-📦 Dependencies (pom.xml)
-
-The project already includes:
-
-Hibernate Core
-
-MySQL Connector
-
-SLF4J Logger
-
-👉 Run mvn clean install to download dependencies.
-
-📝 Logging
-
-simplelogger.properties is configured to:
-
-Show executed SQL queries.
-
-Show parameter values bound in queries.
-
-Format SQL output for readability.
-
-📝 Usage Flow
-
-Run ExecuteQuiz.java.
-
-Enter your name when prompted.
-
-Choose number of questions (e.g., 10 for a quick quiz).
-
-Answer MCQs one by one.
-
-Final score is saved in DB.
-
-Leaderboard 🏆 is displayed with username -> score/total.
-
-👤 Author
-
-Divyansh Kushwaha
-
-🌐 [GitHub][https://www.linkedin.com/in/divyansh-java-developer/]
-
-💼 [LinkedIn][]
-
-💡 Aspiring Java Backend Developer | Hibernate & Spring Enthusiast
+* **LinkedIn**: [https://www.linkedin.com/in/divyansh-java-developer/](https://www.linkedin.com/in/divyansh-java-developer/)
+* **GitHub**: [https://github.com/divyansh000k](https://github.com/divyansh000k)
