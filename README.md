@@ -29,7 +29,6 @@ The app allows users to take quizzes with a custom number of questions, records 
 
 📝 SLF4J Simple Logger
 
-📂 Project Structure
 quiz-app-hibernate/
 │
 ├── src/main/java/backend/hibernate/projects/QuizApp/
@@ -45,6 +44,7 @@ quiz-app-hibernate/
 ├── ehcache.xml                   # Cache configuration
 ├── simplelogger.properties       # Logging setup
 └── README.md                     # Project documentation
+
 
 ⚙️ Configuration
 
