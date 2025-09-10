@@ -52,7 +52,7 @@ Follow these steps to get the project up and running on your local machine.
 
 1.  **Clone the repository:**
     ```sh
-    git clone <your-repository-url>
+    git clone <https://github.com/divyansh000k/QuizApp>
     ```
 
 2.  **Create the Database:**
