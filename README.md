@@ -29,21 +29,29 @@ The app allows users to take quizzes with a custom number of questions, records 
 
 📝 SLF4J Simple Logger
 
-quiz-app-hibernate/
-│
-├── src/main/java/backend/hibernate/projects/QuizApp/
-│    ├── ExecuteQuiz.java         # Main runner (entry point of the app)
-│    ├── QuizService.java         # Core quiz logic (quiz flow + leaderboard)
-│    ├── Question1.java           # Entity for quiz questions
-│    ├── UserScore.java           # Entity for user scores
-│    ├── Question1Dao.java        # DAO for question operations
-│    ├── UserScoreDao.java        # DAO for score operations
-│
-├── pom.xml                       # Maven dependencies and project config
-├── hibernate.cfg.xml             # Hibernate configuration (DB + ORM setup)
-├── ehcache.xml                   # Cache configuration
-├── simplelogger.properties       # Logging setup
-└── README.md                     # Project documentation
+📂 Project Structure
+
+ExecuteQuiz.java → Main runner (entry point of the app)
+
+QuizService.java → Core quiz logic (quiz flow + leaderboard)
+
+Question1.java → Entity for quiz questions
+
+UserScore.java → Entity for user scores
+
+Question1Dao.java → DAO for question operations
+
+UserScoreDao.java → DAO for score operations
+
+pom.xml → Maven dependencies and project config
+
+hibernate.cfg.xml → Hibernate configuration (DB + ORM setup)
+
+ehcache.xml → Cache configuration
+
+simplelogger.properties → Logging setup
+
+README.md → Project documentation
 
 
 ⚙️ Configuration
