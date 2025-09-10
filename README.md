@@ -111,8 +111,8 @@ Leaderboard 🏆 is displayed with username -> score/total.
 
 Divyansh Kushwaha
 
-🌐 GitHub
+🌐 [GitHub][https://www.linkedin.com/in/divyansh-java-developer/]
 
-💼 LinkedIn
+💼 [LinkedIn][]
 
 💡 Aspiring Java Backend Developer | Hibernate & Spring Enthusiast
